@@ -23,7 +23,7 @@ class Extractor():
             synset = wn.synsets(w, lang=self.lang[0:3])
             synset_list = []
             for s in synset:
-                for l in s.lemmas('spa'):
+                for l in s.lemmas(self.lang[0:3]):
                     synset_list.append(l.name())
             main_list.append([w, list(set(synset_list))])
         syn_df = pd.DataFrame(main_list,columns=["Term","Synonyms"])
